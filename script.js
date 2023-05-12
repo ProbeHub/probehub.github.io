@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   // Code for text typing animation
   var typed = new Typed('.news-container h1', {
-    strings: ["Welcome to ProbeHub", "New contents are coming soon..."],
+    strings: ["Coming Soon..."],
     typeSpeed: 150,
     backSpeed: 150,
     loop: true,
