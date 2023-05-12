@@ -141,3 +141,17 @@ footer {
   font-family: "Orion Esperanto Dika";
   src: url("/path/to/orion-esperanto-dika.ttf");
 }
+
+@media screen and (orientation: portrait) {
+  body {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    width: auto;
+    height: 100%;
+  }
+}
