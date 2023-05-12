@@ -141,13 +141,42 @@ footer {
   font-family: "Orion Esperanto Dika";
   src: url("/path/to/orion-esperanto-dika.ttf");
 }
-
-@media screen and (max-width: 768px) {
+/* Small screens (up to 576px) */
+@media screen and (max-width: 576px) {
   .features-container {
     flex-direction: column;
   }
 
   .feature {
     width: 100%;
+    margin-bottom: 2rem;
   }
+}
+
+/* Medium screens (between 576px and 768px) */
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .features-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feature {
+    width: calc(50% - 1rem);
+    margin-bottom: 2rem;
+  }
+}
+
+/* Large screens (above 768px) */
+@media screen and (min-width: 768px) {
+  .features-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .feature {
+    width: calc(33.33% - 1rem);
+  }
+}
 }
