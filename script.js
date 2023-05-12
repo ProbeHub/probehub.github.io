@@ -11,12 +11,10 @@ $(document).ready(function() {
   });
 
   // Code for text typing animation
-  var typed = new Typed('.news-container h1', {
-    strings: ['<span>Coming Soon...</span><span class="typed-cursor"></span>'],
+  var typed = new Typed('.auto-type', {
+    strings: ["Welcome to ProbeHub", "New contents are coming soon..."],
     typeSpeed: 150,
-    backSpeed: 0,
-    smartBackspace: false,
-    loop: false,
-    cursorChar: '|'
+    backSpeed: 150,
+    loop: true,
   });
 });
