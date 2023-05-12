@@ -149,10 +149,3 @@ footer {
   }
 
 }
-
-@media screen and (orientation: landscape) {
-  body {
-    width: auto;
-    height: 100%;
-  }
-}
