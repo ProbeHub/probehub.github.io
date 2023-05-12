@@ -147,11 +147,17 @@ footer {
     width: 100%;
     height: auto;
   }
+  header, footer {
+    width: 100%;
+  }
 }
 
 @media screen and (orientation: landscape) {
   body {
     width: auto;
     height: 100%;
+  }
+  header, footer {
+    width: auto;
   }
 }
