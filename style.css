@@ -1,0 +1,143 @@
+/* Global styles */
+body {
+  font-family: "Orion Esperanto Dika", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: black;
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav li:first-child {
+  margin-left: 0;
+}
+
+nav a {
+  color: white;
+  font-weight: bold;
+}
+
+/* Hero section styles */
+.hero-section {
+  background-color: #f5f5f5;
+  padding: 100px 0;
+  background-color: black;
+  color: white;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.hero-container h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  background-color: black;
+  color: white;
+}
+
+.hero-container p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  background-color: black;
+  color: white;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.footer-container p {
+  font-size: 16px;
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+
+.typed-cursor {
+  display: inline-block;
+  vertical-align: middle;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@font-face {
+  font-family: "Orion Esperanto Dika";
+  src: url("/path/to/orion-esperanto-dika.ttf");
+}
