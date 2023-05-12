@@ -12,9 +12,9 @@ $(document).ready(function() {
 
   // Code for text typing animation
   var typed = new Typed('.news-type', {
-    strings: ['Coming Soon...'],
+    strings: ['Welcome to ProbeHub.', 'New contents are coming soon...'],
     typeSpeed: 150,
-    backSpeed: 150,
+    backSpeed: 80,
     loop: true,
   });
 });
