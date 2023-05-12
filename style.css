@@ -126,6 +126,7 @@ footer {
 .footer-container p {
   font-size: 16px;
   margin: 0;
+  margin-left: 20px;
   background-color: black;
   color: white;
   align-items: center;
