@@ -142,10 +142,12 @@ footer {
   src: url("/path/to/orion-esperanto-dika.ttf");
 }
 
-@media screen and (orientation: portrait) {
-  body {
-    width: 100%;
-    height: auto;
+@media screen and (max-width: 768px) {
+  .features-container {
+    flex-direction: column;
   }
 
+  .feature {
+    width: 100%;
+  }
 }
