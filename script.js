@@ -11,7 +11,7 @@ $(document).ready(function() {
   });
 
   // Code for text typing animation
-  var typed = new Typed('.news-container h1 auto-type', {
+  var typed = new Typed('.news-container h1', {
     strings: ["Welcome to ProbeHub", "New contents are coming soon..."],
     typeSpeed: 150,
     backSpeed: 150,
