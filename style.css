@@ -31,13 +31,12 @@ header {
   color: white;
   display: flex;
   justify-content: space-between;
-  height: 80px;
-  padding: 0 2%;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
   background-color: black;
   color: white;
@@ -120,6 +119,7 @@ footer {
   justify-content: space-between;
   background-color: black;
   color: white;
+  align-items: center;
 }
 
 .footer-container p {
@@ -127,6 +127,7 @@ footer {
   margin: 0;
   background-color: black;
   color: white;
+  align-items: center;
 }
 
 .typed-cursor {
