@@ -29,6 +29,11 @@ header {
   z-index: 999;
   background-color: black;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 2%;
 }
 
 .header-container {
@@ -38,6 +43,14 @@ header {
   padding: 20px;
   background-color: black;
   color: white;
+}
+
+.header-logo {
+  width: 20%;
+}
+
+.header-nav {
+  width: 80%;
 }
 
 .logo {
@@ -141,42 +154,14 @@ footer {
   font-family: "Orion Esperanto Dika";
   src: url("/path/to/orion-esperanto-dika.ttf");
 }
-/* Small screens (up to 576px) */
-@media screen and (max-width: 576px) {
-  .features-container {
-    flex-direction: column;
-  }
 
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .features {
+    margin-top: 40px;
+  }
+  
   .feature {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
   }
-}
-
-/* Medium screens (between 576px and 768px) */
-@media screen and (min-width: 576px) and (max-width: 768px) {
-  .features-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .feature {
-    width: calc(50% - 1rem);
-    margin-bottom: 2rem;
-  }
-}
-
-/* Large screens (above 768px) */
-@media screen and (min-width: 768px) {
-  .features-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .feature {
-    width: calc(33.33% - 1rem);
-  }
-}
 }
