@@ -31,7 +31,6 @@ header {
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   height: 80px;
   padding: 0 2%;
 }
@@ -39,7 +38,6 @@ header {
 .header-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 20px;
   background-color: black;
   color: white;
@@ -107,7 +105,7 @@ nav a {
 
 /* Footer styles */
 footer {
-  background-color: #333;
+  background-color: black;
   color: #fff;
   padding: 20px;
   background-color: black;
@@ -120,7 +118,6 @@ footer {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   background-color: black;
   color: white;
 }
