@@ -87,7 +87,7 @@ function printOutput() {
 	for (let i = 0; i < randomized.length; i++) {
 		toPrint += randomized[i] + "<br>";
 	}
-	var win = window.open()
+	var win = window.open("")
 	win.document.write(toPrint)
 	win.print()
 	win.close()
