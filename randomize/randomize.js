@@ -80,3 +80,16 @@ function randomize() {
 	// output.value = alphabets.join("\n");
 	output.value = outputAlphabets;
 }
+
+function printOutput() {
+	const randomized = document.getElementById("output").value.split("\n");
+	let toPrint = "<h1>" + document.getElementById("title").value + "\n\n</h1>";
+	for (let i = 0; i < randomized.length; i++) {
+		toPrint += randomized[i] + "<br>";
+	}
+	var win = window.open()
+	win.document.write(toPrint)
+	win.print()
+	win.close()
+	// window.print(toPrint);
+}

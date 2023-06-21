@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Randomize List of Alphabets</title>
+	<title>Trial Randomization</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="randomize.js"></script>
+  <style>
+		#output {
+			user-select: none;
+			cursor: default;
+		}
+
+		#output-container {
+			overflow-y: scroll;
+			height: 200px;
+		}
+
+		.output-line {
+			user-select: all;
+			cursor: text;
+		}
+	</style>
 </head>
 <body>
+	<div id="title-container">
+		<label for="title">Title Label (optional):</label>
+		<input type="text" id="title" data-index="">
+	</div>
 	<div id="inputs-container">
 		<div>
-			<label for="alphabets-input-1">Swallowing Trial::</label>
+			<label for="alphabets-input-1">Swallowing Trial:</label>
 			<input type="text" id="alphabets-input-1" data-index="1">
 			<button onclick="changeIncrement(1, 1)">+</button>
 			<button onclick="changeIncrement(1, -1)">-</button>
@@ -19,8 +39,11 @@
 	</div>
 	<button onclick="addInput()">Add Input Field</button>
 	<button onclick="randomize()">Generate</button>
+	<button onclick="printOutput()">Print</button>
 	<br><br>
-	<label for="output">Output:</label>
-	<textarea id="output"></textarea>
+	<div id="outputs-container">
+		<label for="output">Output:</label>
+		<textarea id="output"></textarea>
+	</div>
 </body>
 </html>
