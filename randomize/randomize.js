@@ -93,3 +93,35 @@ function printOutput() {
 	win.close()
 	// window.print(toPrint);
 }
+
+function handleFileSelect(event) {
+	const file = event.target.files[0];
+	const reader = new FileReader();
+	reader.onload = function (event) {
+		const contents = event.target.result;
+		parseCSV(contents);
+	};
+	reader.readAsText(file);
+}
+
+function parseCSV(csv) {
+	const lines = csv.split("\n");
+	const inputsContainer = document.getElementById("inputs-container");
+	inputsContainer.innerHTML = "";
+
+	for (let i = 0; i < lines.length; i++) {
+		const line = lines[i].trim();
+		if (line === "") { continue; }
+		const inputs = line.split(",");
+		const inputIndex = i + 1;
+		const newInput = document.createElement("div");
+		newInput.innerHTML = `<label for="alphabets-input-${inputIndex}">Swallowing Trial:</label>
+		<input type="text" id="alphabets-input-${inputIndex}" value="${inputs[0]}" data-index="${inputIndex}">
+		<button onclick="changeIncrement(${inputIndex}, 1)">+</button>
+		<button onclick="changeIncrement(${inputIndex}, -1)">-</button>
+		<input type="text" id="alphabets-input-count-${inputIndex}" value="Number of repetition: ${inputs[1] || 1}" disabled>
+		<br><br>`;
+		inputsContainer.appendChild(newInput);
+	}
+	numInputs = lines.length;
+}

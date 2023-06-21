@@ -40,7 +40,10 @@
 	<button onclick="addInput()">Add Input Field</button>
 	<button onclick="randomize()">Generate</button>
 	<button onclick="printOutput()">Print</button>
+
 	<br><br>
+	<label for="file-input">Upload CSV file:</label>
+	<input type="file" id="file-input" accept=".csv" onchange="handleFileSelect(event)">
 	<div id="outputs-container">
 		<label for="output">Output:</label>
 		<textarea id="output"></textarea>
