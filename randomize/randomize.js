@@ -6,10 +6,10 @@ function addInput() {
 	const inputsContainer = document.getElementById("inputs-container");
 	const newInput = document.createElement("div");
 
-	newInput.innerHTML = `<label for="alphabets-input-${numInputs}">Swallowing Trial:</label>
+	newInput.innerHTML = `<label for="alphabets-input-${numInputs}">Input:</label>
 	<input type="text" id="alphabets-input-${numInputs}" data-index="${numInputs}">
-	<button onclick="changeIncrement(${numInputs}, 1)">+</button>
-	<button onclick="changeIncrement(${numInputs}, -1)">-</button>
+	<button class="inputs" onclick="changeIncrement(${numInputs}, 1)">+</button>
+	<button class="inputs" onclick="changeIncrement(${numInputs}, -1)">-</button>
 	<input type="text" id="alphabets-input-count-${numInputs}" disabled>
 	<br><br>`;
 
@@ -79,13 +79,20 @@ function randomize() {
 	// Set the randomized array as the output value
 	// output.value = alphabets.join("\n");
 	output.value = outputAlphabets;
+
+	const heightLimit = 500; /* Maximum height: 200px */
+
+  output.style.height = "auto"; /* Reset the height*/
+  output.style.height = Math.min(output.scrollHeight, heightLimit) + "px";
+
 }
 
 function printOutput() {
 	const randomized = document.getElementById("output").value.split("\n");
 	let toPrint = "<h1>" + document.getElementById("title").value + "\n\n</h1>";
 	for (let i = 0; i < randomized.length; i++) {
-		toPrint += randomized[i] + "<br>";
+		if (randomized[i] == "") { continue; }
+		toPrint += "&#9744 &nbsp;&nbsp;&nbsp;" + randomized[i] + "<br>";
 	}
 	var win = window.open("about:blank")
 	win.document.write(toPrint)
@@ -115,13 +122,16 @@ function parseCSV(csv) {
 		const inputs = line.split(",");
 		const inputIndex = i + 1;
 		const newInput = document.createElement("div");
-		newInput.innerHTML = `<label for="alphabets-input-${inputIndex}">Swallowing Trial:</label>
+		const inputCount = document.getElementById(`alphabets-input-${inputIndex}`);
+
+		newInput.innerHTML = `<label for="alphabets-input-${inputIndex}">Input:</label>
 		<input type="text" id="alphabets-input-${inputIndex}" value="${inputs[0]}" data-index="${inputIndex}">
-		<button onclick="changeIncrement(${inputIndex}, 1)">+</button>
-		<button onclick="changeIncrement(${inputIndex}, -1)">-</button>
+		<button class="inputs" onclick="changeIncrement(${inputIndex}, 1)">+</button>
+		<button class="inputs" onclick="changeIncrement(${inputIndex}, -1)">-</button>
 		<input type="text" id="alphabets-input-count-${inputIndex}" value="Number of repetition: ${inputs[1] || 1}" disabled>
 		<br><br>`;
 		inputsContainer.appendChild(newInput);
+		newInput.querySelector(`#alphabets-input-${inputIndex}`).setAttribute("data-increment", inputs[1] || 1);
 	}
 	numInputs = lines.length;
 }
