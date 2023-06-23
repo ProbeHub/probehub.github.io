@@ -31,6 +31,7 @@ function changeIncrement(index, increment) {
 function randomize() {
 	const inputs = document.getElementsByTagName("input");
 	const output = document.getElementById("output");
+	const outputText = document.getElementById("output-text");
 
 	// Create an object to store the input values and their respective increment counters
 	const inputValues = {};
@@ -80,11 +81,11 @@ function randomize() {
 	// output.value = alphabets.join("\n");
 	output.value = outputAlphabets;
 
-	const heightLimit = 500; /* Maximum height: 200px */
+	const heightLimit = 490; /* Maximum height: 200px */
 
   output.style.height = "auto"; /* Reset the height*/
   output.style.height = Math.min(output.scrollHeight, heightLimit) + "px";
-
+	outputText.innerHTML = `Output (size: ${alphabets.length})`;
 }
 
 function printOutput() {
