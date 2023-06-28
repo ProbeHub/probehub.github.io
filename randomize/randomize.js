@@ -32,6 +32,7 @@ function randomize() {
 	const inputs = document.getElementsByTagName("input");
 	const output = document.getElementById("output");
 	const outputText = document.getElementById("output-text");
+	const batchSize = document.getElementById("batch-input").value;
 
 	// Create an object to store the input values and their respective increment counters
 	const inputValues = {};
@@ -54,27 +55,39 @@ function randomize() {
 		}
 	}
 
-	// Split the concatenated string into an array of characters
-	const alphabets = concatenatedAlphabets.split(",");
-
-	// Randomize the array
-	for (let i = alphabets.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[alphabets[i], alphabets[j]] = [alphabets[j], alphabets[i]];
-	}
-
-	// Count the occurrences of each letter
+	let trialSet = [];
 	let outputAlphabets = "";
-	const counts = {};
-	for (let i = 0; i < alphabets.length; i++) {
-		if (alphabets[i] == "") { continue; }
-		const letter = alphabets[i];
-		if (counts[letter]) {
-			counts[letter]++;
-		} else {
-			counts[letter] = 1;
+	const trialSize = concatenatedAlphabets.split(",").length;
+
+	for (let k = 0; k < batchSize; k++) {
+
+		let trials = "";
+
+		// Split the concatenated string into an array of characters
+		const alphabets = concatenatedAlphabets.split(",");
+
+		// Randomize the array
+		for (let i = alphabets.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[alphabets[i], alphabets[j]] = [alphabets[j], alphabets[i]];
 		}
-		outputAlphabets += alphabets[i] + " trial_" + counts[letter] + "\n";
+
+		// Count the occurrences of each letter
+		const counts = {};
+		for (let i = 0; i < alphabets.length; i++) {
+
+			if (alphabets[i] == "") { continue; }
+			const letter = alphabets[i];
+			if (counts[letter]) {
+				counts[letter]++;
+			} else {
+				counts[letter] = 1;
+			}
+
+			trials += alphabets[i] + " trial_" + counts[letter] + "\n";
+			trialSet[k] = trials;
+		}
+		outputAlphabets += trials + "====================\n";
 	}
 
 	// Set the randomized array as the output value
@@ -85,15 +98,20 @@ function randomize() {
 
   output.style.height = "auto"; /* Reset the height*/
   output.style.height = Math.min(output.scrollHeight, heightLimit) + "px";
-	outputText.innerHTML = `Output (size: ${alphabets.length})`;
+	outputText.innerHTML = `Output (size: ${trialSize})`;
 }
 
 function printOutput() {
-	const randomized = document.getElementById("output").value.split("\n");
-	let toPrint = "<h1>" + document.getElementById("title").value + "\n\n</h1>";
-	for (let i = 0; i < randomized.length; i++) {
-		if (randomized[i] == "") { continue; }
-		toPrint += "&#9744 &nbsp;&nbsp;&nbsp;" + randomized[i] + "<br>";
+	const randomized = document.getElementById("output").value.split("====================\n");
+	let toPrint = "";
+	for (let j = 0; j < randomized.length - 1; j++) {
+		toPrint += "<h1>" + document.getElementById("title").value + "\n\n</h1>";
+		const randomized_trials = randomized[j].split("\n");
+		for (let i = 0; i < randomized_trials.length; i++) {
+			if (randomized_trials[i] == "") { continue; }
+			toPrint += "&#9744 &nbsp;&nbsp;&nbsp;" + randomized_trials[i] + "<br>";
+		}
+		toPrint += `<div style="page-break-inside: avoid;page-break-after:always"></div>`;
 	}
 	var win = window.open("about:blank")
 	win.document.write(toPrint)

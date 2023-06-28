@@ -81,7 +81,7 @@
 	.switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 20px;
   height: 34px;
 }
 
@@ -170,11 +170,14 @@ input:checked + .slider:before {
 					<button class="inputs" onclick="changeIncrement(1, -1)">-</button>
 					<input type="text" id="alphabets-input-count-1" disabled>
 					<br><br>
+
 				</div>
 			</div>
+			<label for="batch-input">Batch size:</label>
+			<input type="number" id="batch-input" value=1 min=1 max=1000 style="width: 3em">
+			<br><br>
 			<button class="inputs" onclick="addInput()">Add Input Field</button>
-			<br><br><br>
-
+			<br><br>
 			<button class="inputs" onclick="location.reload()">Reset</button>
 			<button class="inputs" onclick="randomize()">Randomize</button>
 		</div>
